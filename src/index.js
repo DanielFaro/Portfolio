@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider, createTheme, GlobalStyles } from "@mui/material";
 import { blue } from "@mui/material/colors";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -23,8 +23,31 @@ const theme = createTheme({
   },
 });
 
+// this hoists GlobalStyles to a static constant,
+// avoiding rerendering and ensuring the <style>
+// tag won't recalculate on each render
+const scrollGlobalStyles = (
+  <GlobalStyles
+    styles={{
+      "*::-webkit-scrollbar": {
+        width: "0.5em",
+        backgroundColor: "black",
+      },
+      "*::-webkit-scrollbar-track": {
+        "-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.00)",
+      },
+      "*::-webkit-scrollbar-thumb": {
+        color: "black",
+        backgroundColor: "gray",
+        outline: "1px solid slategrey",
+      },
+    }}
+  />
+);
+
 root.render(
   <React.StrictMode>
+    {scrollGlobalStyles}
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>

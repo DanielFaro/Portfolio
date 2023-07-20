@@ -1,0 +1,6 @@
+.btn {
+  font: italic bold 2vh "Courier New";
+  color: #3f51b5;
+  cursor: pointer;
+  text-shadow: -2px 2px red;
+}
