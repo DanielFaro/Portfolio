@@ -1,21 +1,32 @@
 import { useEffect, useState, forwardRef, useRef } from "react";
-import Button from "@mui/material/Button";
+import { useWindowSize } from "@uidotdev/usehooks";
+
 import Typography from "@mui/material/Typography";
 import { useSpring, animated, easings } from "react-spring";
 import Modal from "@mui/material/Modal";
 import Backdrop from "@mui/material/Backdrop";
 import Loader from "./Loader";
 import styles from "./LandingPage.module.css";
+
+// COMPONENTS -------------------------------------------------------------------
+import Button from "@mui/material/Button";
 import AutoTypeWrapper from "./AutoTypeWrapper";
-import NavBar from "./NavBar";
-import headshot from "../assets/images/headshot.avif";
+import NavBar from "./Navigation/NavBar";
+import SideBar from "./Navigation/SideBar";
+import TextSphereSm from "./TextSpheres/TextSphereSm";
+import TextSphere from "./TextSpheres/TextSphere";
+import TextSphereLg from "./TextSpheres/TextSphereLg";
 import JobDescription from "./JobDescription";
+
+// ASSETS -----------------------------------------------------------------------
 import ResumeMar2023 from "../../src/assets/images/ResumeMar2023.pdf";
 import { ReactComponent as GithubLogo } from "../assets/icons/github.svg";
 import { ReactComponent as LinkedInLogo } from "../assets/icons/linkedIn.svg";
-import TextSphere from "./TextSphere";
+import { ReactComponent as YoutubeLogo } from "../assets/icons/youtube.svg";
+import { ReactComponent as MailLogo } from "../assets/icons/mail.svg";
 import calculatorImg from "../assets/images/calculatorCoverPage.jpg";
 import rentalsImg from "../assets/images/luxuryrentalscoverpage.jpg";
+import headshot from "../assets/images/headshot.avif";
 
 export default function LandingPage() {
   const aboutRef = useRef(null);
@@ -23,7 +34,10 @@ export default function LandingPage() {
   const skillsRef = useRef(null);
   const contactsRef = useRef(null);
   const interestsRef = useRef(null);
-  const projectsRef = useState(null);
+  const projectsRef = useRef(null);
+  const contentRef = useRef(null);
+  const { width } = useWindowSize();
+  console.log("## width in LandingPage ==", width);
 
   const linkList = {
     ABOUT: aboutRef,
@@ -34,6 +48,7 @@ export default function LandingPage() {
   };
 
   const [isLoading, setIsLoading] = useState(false);
+  // const [mobileView, setMobileView] = useState(false);
   // const handleOpen = () => setIsLoading(true);
   // const handleClose = () => setIsLoading(false);
 
@@ -47,8 +62,12 @@ export default function LandingPage() {
   };
 
   // useEffect(() => {
-  //   handleOpen();
-  // }, []);
+  //   if (size.width < 480) {
+  //     setMobileView(true);
+  //   } else {
+  //     setMobileView(false);
+  //   }
+  // }, [size]);
 
   const jobs = ["Front-End Dev", "Musician", "Performer"];
   const greetings = [
@@ -75,7 +94,26 @@ export default function LandingPage() {
           <Button onClick={handleClose}>Enter</Button>
         </div>
       )} */}
-      {!isLoading && <NavBar onClick={scrollToSection} />}
+      {!isLoading && width > 520 ? (
+        <NavBar onClick={scrollToSection} width={width} />
+      ) : (
+        <SideBar onClick={scrollToSection} width={width} />
+      )}
+      {width > 768 && (
+        <section key="Email" className={styles.emailWrapper}>
+          <div className={styles.email}>
+            <a
+              id="email-button"
+              href="mailto:Danieln.Faro@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Danieln.Faro@gmail.com
+            </a>
+          </div>
+        </section>
+      )}
+
       <div className={styles.content}>
         <div className={styles.jobsWrapper}>
           <h3>Hi, my name is</h3>
@@ -100,23 +138,22 @@ export default function LandingPage() {
           <Button onClick={handleClose}>Enter</Button>
         </div>
       )} */}
-          <h2>Dans Resume</h2>
-          <Button>
-            <a href={ResumeMar2023} target="_blank" rel="noreferrer">
-              Resume
-            </a>
-          </Button>
           <section key="About" ref={aboutRef} className={styles.about}>
             <div>
               <h2>About</h2>
-              <div>
+              <p>
                 In my work, I try to find the right balance between form and
                 function. From technical drawings, all the way to the
                 photographic renders, and the actual representations of my work
                 as a designer, my philosophy is that of simplicity. At the same
                 time, my style is distinctly mine – uncluttered, with clean
                 shapes and modern space-saving solutions.
-              </div>
+              </p>
+              <Button>
+                <a href={ResumeMar2023} target="_blank" rel="noreferrer">
+                  Resume
+                </a>
+              </Button>
             </div>
             <div className={styles.headshotWrapper}>
               <img src={headshot} alt="headshot" />
@@ -131,7 +168,18 @@ export default function LandingPage() {
           </section>
           <section key="Skills" ref={skillsRef} className={styles.skills}>
             <h2>Skills</h2>
-            <TextSphere />
+            <div className={styles.skillsRow}>
+              <div>description</div>
+              <div>
+                {width < 480 ? (
+                  <TextSphereSm />
+                ) : width < 768 ? (
+                  <TextSphere />
+                ) : (
+                  <TextSphereLg />
+                )}
+              </div>
+            </div>
           </section>
           <section
             key="Interests"
@@ -141,12 +189,13 @@ export default function LandingPage() {
             <h2>Interests</h2>
           </section>
           <section key="Projects" ref={projectsRef}>
-            <h3>Projects</h3>
             <div className={styles.projects}>
+              <h1>Projects</h1>
               <div className={styles.projectItem}>
                 <div className={styles.col1}>
                   <h3>Luxury Rentals</h3>
                   <div className={styles.anchorWrapper}>
+                    wid
                     <a href="https://danielfaro.github.io/LuxuryRentals">
                       <div className={styles.imageWrapper}>
                         <img src={rentalsImg} alt="Luxury Img" />
@@ -211,37 +260,53 @@ export default function LandingPage() {
               </div>
             </div>
           </section>
-          <section key="Contacts" ref={contactsRef} className={styles.contacts}>
-            <h2>Contacts</h2>
-            <a
-              id="email-button"
-              href="mailto:Danieln.Faro@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Email Me
-            </a>
-            <div style={{ height: "20px", width: "20px" }}>
-              <a
-                id="github-button"
-                href="https://www.github.com/DanielFaro"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GithubLogo />
-              </a>
-            </div>
-            <div style={{ height: "20px", width: "20px" }}>
-              <a
-                id="linkedIn-button"
-                href="https://www.linkedin.com/in/daniel-faro-4a4024101/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <LinkedInLogo />
-              </a>
+          <section key="Contacts" ref={contactsRef}>
+            <div className={width > 768 ? styles.contactLinks : styles.footer}>
+              <div>
+                <a
+                  id="github-button"
+                  href="https://www.github.com/DanielFaro"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <GithubLogo />
+                </a>
+              </div>
+              <div>
+                <a
+                  id="linkedIn-button"
+                  href="https://www.linkedin.com/in/daniel-faro-4a4024101/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <LinkedInLogo />
+                </a>
+              </div>
+              <div>
+                <a
+                  id="youtube-button"
+                  href="https://www.youtube.com/@treeczar4187/featured"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <YoutubeLogo />
+                </a>
+              </div>
+              {width < 768 && (
+                <div>
+                  <a
+                    id="email-button"
+                    href="mailto:Danieln.Faro@gmail.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <MailLogo />
+                  </a>
+                </div>
+              )}
             </div>
           </section>
+
           <section key="footer">
             <p>Designed and Built by Dan Faro</p>
           </section>

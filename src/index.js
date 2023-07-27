@@ -11,13 +11,17 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#3f51b5",
+      main: "#1f1f1f",
+      // main: "#E3E8F8",
+      // main: "#018CFE",
+      // main: "#3776FD",
+      // main: "#0AC1FD",
       // light
       //dark
       //contrastText
     },
     secondary: {
-      main: "#f44336",
+      main: "rgba(2, 2, 2, 0.75)",
     },
     contrastThreshold: 4.5, //this meets the minimum contrast designed for accessibility per WCAG 2.1
   },

@@ -2,10 +2,10 @@
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  /* overflow: hidden; */
+  overflow-x: hidden;
   height: 100%;
   width: 100%;
-  background-color: #0a192f;
+  background-color: #018CFE;
 }
 
 /* .noise {
@@ -19,15 +19,20 @@
   background: url('https://framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png');
 } */
 
+p {
+  color: white;
+  font-size: 1.2em;
+}
+
 h1 {
   color: white;
-  font-size: 3.5em;
+  font-size: 2.2em;
   margin: 0;
 }
 
 h2 {
   color: white;
-  font-size: 2.5em;
+  font-size: 1.8em;
   margin: 0;
 }
 
@@ -37,3 +42,42 @@ h3 {
   margin: 0;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.65em;
+  }
+  h3 {
+    font-size: 1.35em;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+  }
+  h3 {
+    font-size: 1.1em;
+    font-weight: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6em;
+  }
+  h2 {
+    font-size: 1.35em;
+    font-weight: normal;
+  }
+  h3 {
+    font-size: 0.95em;
+    font-weight: normal;
+  }
+}

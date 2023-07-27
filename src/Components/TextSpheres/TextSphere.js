@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./TextSphere.css";
+import { texts } from "./index";
 import TagCloud from "TagCloud";
 
 const TextSphere = () => {
@@ -7,35 +8,10 @@ const TextSphere = () => {
   useEffect(() => {
     return () => {
       const container = ".tagcloud";
-      const texts = [
-        "HTML",
-        "CSS",
-        "SASS",
-        "JavaScript",
-        "React",
-        "NodeJS",
-        "Babel",
-        "Jquery",
-        "ES6",
-        "GIT",
-        "_lodash",
-        "REST",
-        "TypeScript",
-        "Redux",
-        "Jest",
-        "SQL",
-        "MaterialUI",
-        "WebSockets",
-        "GraphQL",
-        "Next",
-        "Express",
-      ];
-
       const options = {
-        radius: 300,
+        radius: 280,
         maxSpeed: "normal",
         initSpeed: "normal",
-        // keep: true,
         direction: 135,
       };
 
