@@ -17,13 +17,14 @@ import TextSphereSm from "./TextSpheres/TextSphereSm";
 import TextSphere from "./TextSpheres/TextSphere";
 import TextSphereLg from "./TextSpheres/TextSphereLg";
 import JobDescription from "./JobDescription";
+import Skills from "./Skills";
 
 // ASSETS -----------------------------------------------------------------------
-import ResumeMar2023 from "../../src/assets/images/ResumeMar2023.pdf";
 import { ReactComponent as GithubLogo } from "../assets/icons/github.svg";
 import { ReactComponent as LinkedInLogo } from "../assets/icons/linkedIn.svg";
 import { ReactComponent as YoutubeLogo } from "../assets/icons/youtube.svg";
 import { ReactComponent as MailLogo } from "../assets/icons/mail.svg";
+import { ReactComponent as ExternalLinkLogo } from "../assets/icons/linkIcon.svg";
 import calculatorImg from "../assets/images/calculatorCoverPage.jpg";
 import rentalsImg from "../assets/images/luxuryrentalscoverpage.jpg";
 import headshot from "../assets/images/headshot.avif";
@@ -88,41 +89,41 @@ export default function LandingPage() {
   // last section on page is just an email link.
   return (
     <div className={styles.landingWrapper}>
-      {/* {isLoading && (
+      <div className={styles.landingPage}>
+        {/* {isLoading && (
         <div className={styles.open}>
           <Loader />
           <Button onClick={handleClose}>Enter</Button>
         </div>
       )} */}
-      {!isLoading && width > 520 ? (
-        <NavBar onClick={scrollToSection} width={width} />
-      ) : (
-        <SideBar onClick={scrollToSection} width={width} />
-      )}
-      {width > 768 && (
-        <section key="Email" className={styles.emailWrapper}>
-          <div className={styles.email}>
-            <a
-              id="email-button"
-              href="mailto:Danieln.Faro@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Danieln.Faro@gmail.com
-            </a>
-          </div>
-        </section>
-      )}
+        {!isLoading && width > 560 ? (
+          <NavBar onClick={scrollToSection} width={width} />
+        ) : (
+          <SideBar onClick={scrollToSection} width={width} />
+        )}
+        {width > 768 && (
+          <section key="Email" className={styles.emailWrapper}>
+            <div className={styles.email}>
+              <a
+                id="email-button"
+                href="mailto:Danieln.Faro@gmail.com"
+                target="_blank"
+                rel="noreferrer">
+                Danieln.Faro@gmail.com
+              </a>
+            </div>
+          </section>
+        )}
 
-      <div className={styles.content}>
-        <div className={styles.jobsWrapper}>
+        {/* <div className={styles.content}> */}
+        <div className={styles.roleWrapper}>
           <h3>Hi, my name is</h3>
           <h1 style={{ color: "greenyellow" }}>Dan Faro</h1>
           <div style={{ display: "flex" }}>
             <h1>{`I am a\u00A0`}</h1>
-            <h1>
-              <AutoTypeWrapper strings={jobs} />
-            </h1>
+            {/* <h1>
+            <AutoTypeWrapper strings={jobs} />
+          </h1> */}
           </div>
 
           {/* <h1 className={styles.typingBorder}>
@@ -131,188 +132,209 @@ export default function LandingPage() {
           {/* <h1>{`';`}</h1> */}
         </div>
 
-        <div className={isLoading ? styles.Loading : styles.Default}>
-          {/* {open && (
+        {/* <div className={isLoading ? styles.Loading : styles.Default}> */}
+        {/* {open && (
         <div className={opwen ? styles.open : styles.closed}>
           <Loader show={open} />
           <Button onClick={handleClose}>Enter</Button>
         </div>
       )} */}
-          <section key="About" ref={aboutRef} className={styles.about}>
-            <div>
-              <h2>About</h2>
-              <p>
-                In my work, I try to find the right balance between form and
-                function. From technical drawings, all the way to the
-                photographic renders, and the actual representations of my work
-                as a designer, my philosophy is that of simplicity. At the same
-                time, my style is distinctly mine – uncluttered, with clean
-                shapes and modern space-saving solutions.
-              </p>
-              <Button>
-                <a href={ResumeMar2023} target="_blank" rel="noreferrer">
-                  Resume
-                </a>
-              </Button>
-            </div>
-            <div className={styles.headshotWrapper}>
-              <img src={headshot} alt="headshot" />
-            </div>
-          </section>
-          <section
-            key="Experience"
-            ref={experienceRef}
-            className={styles.experience}
-          >
-            <JobDescription />
-          </section>
-          <section key="Skills" ref={skillsRef} className={styles.skills}>
-            <h2>Skills</h2>
-            <div className={styles.skillsRow}>
-              <div>description</div>
-              <div>
-                {width < 480 ? (
-                  <TextSphereSm />
-                ) : width < 768 ? (
-                  <TextSphere />
-                ) : (
-                  <TextSphereLg />
-                )}
-              </div>
-            </div>
-          </section>
-          <section
-            key="Interests"
-            ref={interestsRef}
-            className={styles.interests}
-          >
-            <h2>Interests</h2>
-          </section>
-          <section key="Projects" ref={projectsRef}>
-            <div className={styles.projects}>
-              <h1>Projects</h1>
-              <div className={styles.projectItem}>
-                <div className={styles.col1}>
-                  <h3>Luxury Rentals</h3>
-                  <div className={styles.anchorWrapper}>
-                    wid
-                    <a href="https://danielfaro.github.io/LuxuryRentals">
-                      <div className={styles.imageWrapper}>
-                        <img src={rentalsImg} alt="Luxury Img" />
-                      </div>
-                    </a>
+        <section key="About" ref={aboutRef} className={styles.about}>
+          <div>
+            <h2>About</h2>
+            <p>
+              In my work, I try to find the right balance between form and
+              function. From technical drawings, all the way to the photographic
+              renders, and the actual representations of my work as a designer,
+              my philosophy is that of simplicity. At the same time, my style is
+              distinctly mine – uncluttered, with clean shapes and modern
+              space-saving solutions.
+            </p>
+          </div>
+          <div className={styles.headshotWrapper}>
+            <img src={headshot} alt="headshot" />
+          </div>
+        </section>
+        <section
+          key="Experience"
+          ref={experienceRef}
+          className={styles.experience}>
+          <JobDescription />
+        </section>
+        <section key="Skills" ref={skillsRef} className={styles.skills}>
+          <div className={styles.skillsRow}>
+            <Skills />
+            {/* <div>
+            {width < 640 ? (
+              <div>skill list</div>
+            ) : width < 768 ? (
+              <TextSphereSm />
+            ) : width < 1440 ? (
+              <TextSphere />
+            ) : (
+              <TextSphereLg />
+            )}
+          </div> */}
+          </div>
+        </section>
+        <section
+          key="Interests"
+          ref={interestsRef}
+          className={styles.interests}>
+          <h2>Interests</h2>
+        </section>
+        <section
+          key="Projects"
+          ref={projectsRef}
+          className={styles.projectsWrapper}>
+          <h1>Projects</h1>
+          <div className={styles.project}>
+            <div className={styles.luxury}>
+              <div className={styles.anchorWrapper}>
+                <a href="https://danielfaro.github.io/LuxuryRentals">
+                  <div className={styles.imageWrapper}>
+                    <img src={rentalsImg} alt="Luxury Img" />
                   </div>
-                  <div className={styles.projectLangs}>
-                    <div>React styled-componets MongoDB Express</div>
-                    <div style={{ height: "20px", width: "20px" }}>
-                      <a
-                        id="github-button"
-                        href="https://github.com/DanielFaro/LuxuryRentals/tree/master"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <GithubLogo />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.col2}>
-                  <div className={styles.projectDescription}>
-                    'Luxury Rentals' is a proof of concept displaying the
-                    available luxury vehicles in the area. For this case, Los
-                    Angeles was used as an example. It includes filtering by
-                    several parameters such as vehichle type and size.
-                  </div>
-                </div>
-              </div>
-              <div className={styles.projectItem}>
-                <div className={styles.col1}>
-                  <h3>SFX Calculator</h3>
-                  <div className={styles.anchorWrapper}>
-                    <a href="https://danielfaro.github.io/calculator-app-ts">
-                      <div className={styles.imageWrapper}>
-                        <img src={calculatorImg} alt="Calculator Img" />
-                      </div>
-                    </a>
-                  </div>
-                  <div className={styles.projectLangs}>
-                    <div>React TypeScript</div>
-                    <div style={{ height: "20px", width: "20px" }}>
-                      <a
-                        id="github-button"
-                        href="https://github.com/DanielFaro/calculator-app-ts"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <GithubLogo />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.col2}>
-                  <div className={styles.projectDescription}>
-                    This is a calculator built in TypeScript and React with an
-                    added drum effects library. On display of the result, the
-                    sounds associated with each number are looped over and
-                    played in succession, creating a drum beat.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section key="Contacts" ref={contactsRef}>
-            <div className={width > 768 ? styles.contactLinks : styles.footer}>
-              <div>
-                <a
-                  id="github-button"
-                  href="https://www.github.com/DanielFaro"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <GithubLogo />
                 </a>
               </div>
-              <div>
-                <a
-                  id="linkedIn-button"
-                  href="https://www.linkedin.com/in/daniel-faro-4a4024101/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <LinkedInLogo />
-                </a>
-              </div>
-              <div>
-                <a
-                  id="youtube-button"
-                  href="https://www.youtube.com/@treeczar4187/featured"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <YoutubeLogo />
-                </a>
-              </div>
-              {width < 768 && (
-                <div>
-                  <a
-                    id="email-button"
-                    href="mailto:Danieln.Faro@gmail.com"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <MailLogo />
-                  </a>
-                </div>
-              )}
             </div>
-          </section>
 
-          <section key="footer">
-            <p>Designed and Built by Dan Faro</p>
-          </section>
-        </div>
+            <div className={styles.luxuryTitle}>
+              <h3>Luxury Rentals</h3>
+            </div>
+            <div className={styles.luxuryDescription}>
+              {" "}
+              <p>
+                'Luxury Rentals' is a proof of concept displaying the available
+                luxury vehicles in the area. For this case, Los Angeles was used
+                as an example. It includes filtering by several parameters such
+                as vehichle type and size.
+              </p>
+              <div className={styles.projectLangs}>
+                <div>[React styled-components MongoDB Express]</div>
+                <div className={styles.projectLinks}>
+                  <div>
+                    <a
+                      id="github-button"
+                      href="https://github.com/DanielFaro/LuxuryRentals/tree/master"
+                      target="_blank"
+                      rel="noreferrer">
+                      <GithubLogo />
+                    </a>
+                  </div>
+                  <div>
+                    {" "}
+                    <a
+                      id="external-link-button"
+                      href="https://danielfaro.github.io/LuxuryRentals"
+                      target="_blank"
+                      rel="noreferrer">
+                      <ExternalLinkLogo />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.project}>
+            <div className={styles.calculator}>
+              <div className={styles.anchorWrapper}>
+                <a href="https://danielfaro.github.io/calculator-app-ts">
+                  <div className={styles.imageWrapper}>
+                    <img src={calculatorImg} alt="Calculator Img" />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div className={styles.calculatorTitle}>
+              <h3>SFX Calculator</h3>
+            </div>
+            <div className={styles.calculatorDescription}>
+              <p>
+                This is a calculator built in TypeScript and React with an added
+                drum effects library. On display of the result, the sounds
+                associated with each number are looped over and played in
+                succession, creating a drum beat.
+              </p>
+
+              <div className={styles.projectLangs}>
+                <div>[React TypeScript]</div>
+                <div className={styles.projectLinks}>
+                  <div>
+                    <a
+                      id="github-button"
+                      href="https://github.com/DanielFaro/calculator-app-ts"
+                      target="_blank"
+                      rel="noreferrer">
+                      <GithubLogo />
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      id="external-link-button"
+                      href="https://danielfaro.github.io/calculator-app-ts"
+                      target="_blank"
+                      rel="noreferrer">
+                      <ExternalLinkLogo />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section key="Contacts" ref={contactsRef}>
+          <div className={width > 768 ? styles.contactLinks : styles.footer}>
+            <div>
+              <a
+                id="github-button"
+                href="https://www.github.com/DanielFaro"
+                target="_blank"
+                rel="noreferrer">
+                <GithubLogo />
+              </a>
+            </div>
+            <div>
+              <a
+                id="linkedIn-button"
+                href="https://www.linkedin.com/in/daniel-faro-4a4024101/"
+                target="_blank"
+                rel="noreferrer">
+                <LinkedInLogo />
+              </a>
+            </div>
+            <div>
+              <a
+                id="youtube-button"
+                href="https://www.youtube.com/@treeczar4187/featured"
+                target="_blank"
+                rel="noreferrer">
+                <YoutubeLogo />
+              </a>
+            </div>
+            {width < 768 && (
+              <div>
+                <a
+                  id="email-button"
+                  href="mailto:Danieln.Faro@gmail.com"
+                  target="_blank"
+                  rel="noreferrer">
+                  <MailLogo />
+                </a>
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section key="footer" className={styles.footerWrapper}>
+          <div className={styles.footer}>
+            <p>Built by Dan Faro</p>
+          </div>
+        </section>
       </div>
     </div>
+    /* </div> */
+    // </div>
   );
 }
 

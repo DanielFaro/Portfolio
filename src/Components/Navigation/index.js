@@ -4,8 +4,8 @@ const EXPERIENCE = "EXPERIENCE";
 const INTERESTS = "INTERESTS";
 const CONTACTS = "CONTACTS";
 
-export const links = [ABOUT, SKILLS, EXPERIENCE, INTERESTS];
-export const mobileLinks = [ABOUT, SKILLS, EXPERIENCE, INTERESTS, CONTACTS];
+export const links = [ABOUT, EXPERIENCE, SKILLS, INTERESTS];
+export const mobileLinks = [ABOUT, EXPERIENCE, SKILLS, INTERESTS, CONTACTS];
 export const scrollToTop = () => {
   window.scrollTo({
     top: 0,

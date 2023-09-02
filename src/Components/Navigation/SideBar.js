@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { mobileLinks, scrollToTop } from "./index.js";
+import ResumeMar2023 from "../../assets/images/ResumeMar2023.pdf";
 
 export default function SideBar({ onClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,8 +30,7 @@ export default function SideBar({ onClick }) {
           className={styles.btn}
           onClick={() => {
             onClick(linkName);
-          }}
-        >
+          }}>
           /{linkName}
         </div>
       );
@@ -44,8 +44,7 @@ export default function SideBar({ onClick }) {
           display: "flex",
           justifyContent: "space-between",
           boxShadow: 2,
-        }}
-      >
+        }}>
         <div className={styles.logo} onClick={() => scrollToTop()}>
           <PersonalLogo />
         </div>
@@ -53,8 +52,7 @@ export default function SideBar({ onClick }) {
           edge="start"
           color="inherit"
           aria-label="open drawer"
-          onClick={toggleMenu}
-        >
+          onClick={toggleMenu}>
           <FontAwesomeIcon
             icon={faBars}
             size="xs"
@@ -72,8 +70,7 @@ export default function SideBar({ onClick }) {
               backgroundColor: "secondary.main",
               padding: 1,
             },
-          }}
-        >
+          }}>
           <Box onClick={toggleMenu} sx={{ marginBottom: 5 }}>
             <FontAwesomeIcon
               icon={faCircleXmark}
@@ -87,9 +84,15 @@ export default function SideBar({ onClick }) {
               flexDirection: "column",
               gap: "1.5em",
               alignItems: "center",
-            }}
-          >
+            }}>
             {generateLinks()}
+            <Box>
+              <button>
+                <a href={ResumeMar2023} target="_blank" rel="noreferrer">
+                  C/V
+                </a>
+              </button>
+            </Box>
           </Box>
         </Drawer>
       </Toolbar>

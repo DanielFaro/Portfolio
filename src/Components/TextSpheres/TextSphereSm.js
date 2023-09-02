@@ -9,7 +9,7 @@ const TextSphereSm = () => {
     return () => {
       const container = ".tagcloudSm";
       const options = {
-        radius: 150,
+        radius: 140,
         maxSpeed: "normal",
         initSpeed: "normal",
         direction: 135,

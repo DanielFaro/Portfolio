@@ -4,6 +4,7 @@ import styles from "./NavBar.module.css";
 import { links, mobileLinks, scrollToTop } from "./index.js";
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { ReactComponent as PersonalLogo } from "../../assets/icons/logo.svg";
+import ResumeMar2023 from "../../assets/images/ResumeMar2023.pdf";
 
 export default function NavBar({ onClick, width }) {
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -27,8 +28,7 @@ export default function NavBar({ onClick, width }) {
           onClick={() => {
             onClick(linkName);
           }}
-          style={i === hoveredLink ? hoveredProps : null}
-        >
+          style={i === hoveredLink ? hoveredProps : null}>
           /{linkName}
         </animated.div>
       );
@@ -47,19 +47,30 @@ export default function NavBar({ onClick, width }) {
           color: "white",
           justifyContent: "space-between",
           boxShadow: 2,
-        }}
-      >
+        }}>
         <div className={styles.logo} onClick={() => scrollToTop()}>
           <PersonalLogo />
         </div>
         <Box
           sx={{
             display: "flex",
-            gap: "1.5em",
-            alignItems: "center",
-          }}
-        >
-          {generateLinks()}
+          }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "1.5em",
+              alignItems: "center",
+            }}>
+            {generateLinks()}
+          </Box>
+          <Box>
+            <button className={styles.button}>
+              {" "}
+              <a href={ResumeMar2023} target="_blank" rel="noreferrer">
+                C/V
+              </a>
+            </button>
+          </Box>
         </Box>
       </Toolbar>
     </AppBar>

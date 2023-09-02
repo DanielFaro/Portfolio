@@ -10,7 +10,7 @@ const TextSphereLg = () => {
       const container = ".tagcloudLg";
 
       const options = {
-        radius: 500,
+        radius: 400,
         maxSpeed: "normal",
         initSpeed: "normal",
         direction: 135,

@@ -1,12 +1,13 @@
-.jobsWrapper {
+.skillsWrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+  /* align-items: flex-start; */
+  text-align: left;
+  /* gap: 40px; */
 }
 
-.jobWrapper {
+/* .jobWrapper {
   display: flex;
   flex-direction: column;
 }
@@ -15,7 +16,7 @@
   min-height: 300px;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 .title {
   min-height: 80px;
@@ -85,17 +86,7 @@
   justify-content: center;
 }
 
-@media (min-width: 1080px) {
-  .summary {
-    width: 40%;
-  }
-
-  .anchorWrapper {
-    width: 60%;
-  }
-}
-
-@media (max-width: 1080px) {
+@media (max-width: 768px) {
   .job {
     display: block;
   }
