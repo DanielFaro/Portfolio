@@ -5,20 +5,27 @@
   transform: scale(1) rotate(0deg) translate(0px, 0px) skew(-10deg, 0deg);
 }
 
-.button {
-  height: 40px;
-  width: 80px;
-  background-color: transparent;
-  font: bold 2vh "Courier New";
-  border: 1px solid #2e5a88;
-  border-radius: 5px;
-  margin-left: 40px;
-  cursor: pointer;
+a {
+  .button {
+    height: 40px;
+    width: 80px;
+    background-color: transparent;
+    color: #1890ff;
+    font: bold 2vh "Courier New";
+    border: 1px solid #2e5a88;
+    border-radius: 5px;
+    margin-left: 40px;
+    cursor: pointer;
 
-  > a {
+    &:hover {
+      color: white;
+    }
+  }
+
+  /* > a {
     text-decoration: none;
     color: white;
-  }
+  } */
 }
 
 .logo {
@@ -38,7 +45,7 @@
 }
 
 @media only screen and (max-width: 650px) {
-  .button {
+  a > .button {
     font: italic bold 1.3vh "Courier New";
     margin-left: 20px;
     width: 40px;
@@ -46,7 +53,7 @@
 }
 
 @media only screen and (min-width: 560px) {
-  .button {
+  a > .button {
     transform: translateX(0px) translateY(0px);
     transition: transform 250ms;
     &:hover {

@@ -89,7 +89,12 @@ export default function JobDescription() {
   };
 
   // Add a fade in/fade out transition for description
-  return <div className={styles.jobsWrapper}>{generateJobs()}</div>;
+  return (
+    <div>
+      <h2>Experience</h2>
+      <div className={styles.jobsWrapper}>{generateJobs()}</div>
+    </div>
+  );
 }
 
 // <Box
@@ -106,6 +111,7 @@ export default function JobDescription() {
 //       onChange={handleChange}
 //       orientation="vertical"
 //       variant="scrollable"
+//       aria-label="scrollable-horizontal"
 //       sx={{
 //         borderRight: 1,
 //         mr: 5,

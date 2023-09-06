@@ -40,7 +40,7 @@ export default function NavBar({ onClick, width }) {
   // 0AC1FD
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "secondary.main" }}>
+    <AppBar position="fixed" sx={{ backgroundColor: "secondary.dark" }}>
       <Toolbar
         sx={{
           display: "flex",
@@ -64,12 +64,9 @@ export default function NavBar({ onClick, width }) {
             {generateLinks()}
           </Box>
           <Box>
-            <button className={styles.button}>
-              {" "}
-              <a href={ResumeMar2023} target="_blank" rel="noreferrer">
-                C/V
-              </a>
-            </button>
+            <a href={ResumeMar2023} target="_blank" rel="noreferrer">
+              <button className={styles.button}>C/V</button>
+            </a>
           </Box>
         </Box>
       </Toolbar>

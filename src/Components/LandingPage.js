@@ -140,8 +140,8 @@ export default function LandingPage() {
         </div>
       )} */}
         <section key="About" ref={aboutRef} className={styles.about}>
-          <div>
-            <h2>About</h2>
+          <h2>About</h2>
+          <div className={styles.aboutContent}>
             <p>
               In my work, I try to find the right balance between form and
               function. From technical drawings, all the way to the photographic
@@ -150,9 +150,10 @@ export default function LandingPage() {
               distinctly mine – uncluttered, with clean shapes and modern
               space-saving solutions.
             </p>
-          </div>
-          <div className={styles.headshotWrapper}>
-            <img src={headshot} alt="headshot" />
+
+            <div className={styles.headshotWrapper}>
+              <img src={headshot} alt="headshot" />
+            </div>
           </div>
         </section>
         <section
@@ -177,17 +178,17 @@ export default function LandingPage() {
           </div> */}
           </div>
         </section>
-        <section
+        {/* <section
           key="Interests"
           ref={interestsRef}
           className={styles.interests}>
           <h2>Interests</h2>
-        </section>
+        </section> */}
         <section
           key="Projects"
           ref={projectsRef}
           className={styles.projectsWrapper}>
-          <h1>Projects</h1>
+          <h2>Projects</h2>
           <div className={styles.project}>
             <div className={styles.luxury}>
               <div className={styles.anchorWrapper}>
@@ -283,53 +284,65 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section key="Contacts" ref={contactsRef}>
-          <div className={width > 768 ? styles.contactLinks : styles.footer}>
-            <div>
-              <a
-                id="github-button"
-                href="https://www.github.com/DanielFaro"
-                target="_blank"
-                rel="noreferrer">
-                <GithubLogo />
-              </a>
-            </div>
-            <div>
-              <a
-                id="linkedIn-button"
-                href="https://www.linkedin.com/in/daniel-faro-4a4024101/"
-                target="_blank"
-                rel="noreferrer">
-                <LinkedInLogo />
-              </a>
-            </div>
-            <div>
-              <a
-                id="youtube-button"
-                href="https://www.youtube.com/@treeczar4187/featured"
-                target="_blank"
-                rel="noreferrer">
-                <YoutubeLogo />
-              </a>
-            </div>
-            {width < 768 && (
-              <div>
-                <a
-                  id="email-button"
-                  href="mailto:Danieln.Faro@gmail.com"
-                  target="_blank"
-                  rel="noreferrer">
-                  <MailLogo />
-                </a>
-              </div>
-            )}
-          </div>
+        <section key="Contacts" ref={contactsRef} className={styles.contacts}>
+          <h2>Contacts</h2>
+          <p>Feel free to hit me up yo</p>
+          <a
+            id="message-button"
+            href="mailto:Danieln.Faro@gmail.com"
+            target="_blank"
+            rel="noreferrer">
+            <button className={styles.messageBtn}>
+              <p>Reach Out</p>
+            </button>
+          </a>
         </section>
+        <div
+          className={
+            width > 768 ? styles.contactLinks : styles.mobileContactLinks
+          }>
+          <div>
+            <a
+              id="github-button"
+              href="https://www.github.com/DanielFaro"
+              target="_blank"
+              rel="noreferrer">
+              <GithubLogo />
+            </a>
+          </div>
+          <div>
+            <a
+              id="linkedIn-button"
+              href="https://www.linkedin.com/in/daniel-faro-4a4024101/"
+              target="_blank"
+              rel="noreferrer">
+              <LinkedInLogo />
+            </a>
+          </div>
+          <div>
+            <a
+              id="youtube-button"
+              href="https://www.youtube.com/@treeczar4187/featured"
+              target="_blank"
+              rel="noreferrer">
+              <YoutubeLogo />
+            </a>
+          </div>
+          {/* {width > 768 && (
+            <div>
+              <a
+                id="email-button"
+                href="mailto:Danieln.Faro@gmail.com"
+                target="_blank"
+                rel="noreferrer">
+                <MailLogo />
+              </a>
+            </div>
+          )} */}
+        </div>
 
         <section key="footer" className={styles.footerWrapper}>
-          <div className={styles.footer}>
-            <p>Built by Dan Faro</p>
-          </div>
+          <div className={styles.footer}>Built by Dan Faro</div>
         </section>
       </div>
     </div>

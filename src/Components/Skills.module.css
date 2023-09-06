@@ -1,102 +1,47 @@
 .skillsWrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
   justify-content: space-between;
+  padding: 20px;
   /* align-items: flex-start; */
   text-align: left;
   /* gap: 40px; */
 }
 
-/* .jobWrapper {
-  display: flex;
-  flex-direction: column;
-}
-.job {
-  display: flex;
-  min-height: 300px;
-  justify-content: space-between;
+.TabPanel {
+  /* min-height: 200px; */
+  max-width: 520px;
+  /* height: 464px; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  column-gap: 10px;
+  row-gap: 10px;
+  grid-template-rows: repeat(auto, 50px);
   align-items: center;
-} */
-
-.title {
-  min-height: 80px;
-  padding: 10px 30px;
+  justify-content: center;
 }
 
-.company {
+.tab {
+  color: white;
 }
 
-/* .role {
-  font-size: 1.5em;
-} */
-
-.date {
-}
-
-.summary {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  font-size: 1.2rem;
-  &:last-of-type {
-    width: 100%;
-  }
-}
-
-.stack {
-  margin-top: 20px;
-  font-size: 16px;
+.chip {
+  background-color: transparent;
+  border: 1px solid black;
   color: salmon;
-  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-}
-
-.imgWrapper {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* img {
-  height: ;
+  padding: 5px;
   width: 100%;
-} */
-
-.anchorWrapper {
-  height: 300px;
-  width: 50%;
-
-  /* //min-width: 150px; */
-  transform: scale(1);
-  transition: transform 800ms;
-  &:hover {
-    transform: scale(1.08);
-    transition: transform 800ms;
-    cursor: pointer;
-  }
+  border-radius: 15%/50%;
+  text-align: center;
 }
-
-.imageWrapper {
-  height: 100%;
-  width: 100%;
-  padding: 10px;
-  min-width: 150px;
-  display: flex;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .job {
-    display: block;
+@media (max-width: 480px) {
+  .TabPanel {
+    width: 280px;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 100px));
+    justify-content: center;
   }
-  .summary,
-  .anchorWrapper,
-  .imageWrapper {
-    width: 100%;
-  }
-  .stack {
-    font-size: 13px;
-    word-wrap: normal;
+  .chip {
+    font-size: 0.8rem;
   }
 }

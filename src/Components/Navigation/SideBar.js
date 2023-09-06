@@ -38,7 +38,7 @@ export default function SideBar({ onClick }) {
   };
 
   return (
-    <AppBar sx={{ backgroundColor: "secondary.main" }}>
+    <AppBar sx={{ backgroundColor: "secondary.dark" }}>
       <Toolbar
         sx={{
           display: "flex",
@@ -67,11 +67,11 @@ export default function SideBar({ onClick }) {
           PaperProps={{
             sx: {
               width: 100,
-              backgroundColor: "secondary.main",
+              backgroundColor: "secondary.dark",
               padding: 1,
             },
           }}>
-          <Box onClick={toggleMenu} sx={{ marginBottom: 5 }}>
+          <Box onClick={toggleMenu} sx={{ marginBottom: 5, cursor: "pointer" }}>
             <FontAwesomeIcon
               icon={faCircleXmark}
               size="lg"
@@ -87,11 +87,9 @@ export default function SideBar({ onClick }) {
             }}>
             {generateLinks()}
             <Box>
-              <button>
-                <a href={ResumeMar2023} target="_blank" rel="noreferrer">
-                  C/V
-                </a>
-              </button>
+              <a href={ResumeMar2023} target="_blank" rel="noreferrer">
+                <button className={styles.resumeBtn}>C/V</button>
+              </a>
             </Box>
           </Box>
         </Drawer>

@@ -1,91 +1,226 @@
 import { useState } from "react";
 import { useSpring } from "react-spring";
 import styles from "./Skills.module.css";
-import { Box, Tabs, Tab } from "@mui/material";
+import { Box, Tabs, Tab, Typography, Chip, styled } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 export default function Skills() {
   const [value, setValue] = useState(0);
-
   const handleChange = (e, newVal) => setValue(newVal);
 
-  const Shift4 = {
-    company: "Shift4",
-    role: "Software Engineer III",
-    date: "Oct 2021 - Oct 2022",
-    src: "https://www.shift4.com/online-payments",
-    alt: "Shift4",
-    stack: "[React, Redux, ReduxSaga, MaterialUI, Storybook, DataDog]",
-    description: `Maintained and developed front end code for a POS application used in secure bulk purchase transactions (e.g. Theme parks, Hotels, Stadiums).
-      Developed contemporary layouts for devices including tablets and phones
-      Improved UI experience based on user feedback for multiple software versions ranging in complexity`,
+  const generateChips = (items) => {
+    return items.map((item) => {
+      return <div className={styles.chip}>{item}</div>;
+    });
   };
 
-  const Cadent = {
-    company: "Cadent",
-    role: "Associate Front-End Engineer",
-    date: "July 2019 - Oct 2021",
-    src: "https://cadent.tv/",
-    alt: "Cadent",
-    stack: "[React, Redux, ReduxSaga, Storybook, Websockets, Jest]",
-    description: `Built shared React components for ad time purchasing app using React/Redux and ensure code functionality with Jest.
-      Fixed bugs from existing codebases and implemented enhancements to improve speed and functionality.
-      Explored modern js technology including sagas and web sockets`,
-  };
+  function CustomTabPanel(props) {
+    const { children, value, index, ...other } = props;
 
-  const ProjectOne = {
-    company: "Project One",
-    role: "Junior Front-End Developer",
-    date: "Dec 2017 - Sept 2018",
-    alt: "ProjectOne",
-    stack:
-      "[React, Redux, ReduxSaga, SemanticUI, React Testing Library, MongoDB]",
-    description: `Led the front-end development of an innovative web app for college students to learn and practice calculus.
-      Built a fully functioning MVP for higher education from the ground up.
-      Utilized burgeoning js libraries such immutableJS and semanticUI.`,
-  };
+    return (
+      value === index && (
+        <div
+          role="tabpanel"
+          className={styles.TabPanel}
+          id={`simple-tabpanel-${index}`}
+          aria-labelledby={`simple-tab-${index}`}
+          {...other}>
+          {children}
+          {/* <Box sx={{ p: 3 }}>
+          <Typography variant="p">{children}</Typography>
+        </Box> */}
+        </div>
+      )
+    );
+  }
 
-  // I am well versed in front-end technology and have over 5years experience creating react applications.
-  // REcently, I have been learning express, graphql, mondodb and node.js on my way to full-stack development.
+  const AntTabs = styled((props) => (
+    <Tabs {...props} orientation="horizontal" variant="scrollable" />
+  ))({
+    borderBottom: "1px solid #0a192f",
+    "& .MuiTabs-indicator": {
+      backgroundColor: "#1890ff",
+    },
+  });
 
-  // langs: Javascript, HTML 5, CSS 3, Node.js, TypeScript, python, SASS/LESS
-  // technology: React.js, Redux, Sagas, Webpack, GraphQL, SQL, SQLite, axios, express, django, Firebase, mongodb, NPM, webpack
-  // UI: MaterialUI, SemanticUI, styled components, media breakpoints and cssgrid
-  // testing: Jest, Enzyme, Redux Dev Tools
+  const AntTab = styled((props) => <Tab {...props} />)(({ theme }) => ({
+    textTransform: "none",
+    // minWidth: 0,
+    // [theme.breakpoints.up("xs")]: {
+    //   minWidth: 80,
+    // },
+    // fontWeight: theme.typography.fontWeightRegular,
+    // marginRight: theme.spacing(1),
+    color: "#ffffff",
+    fontFamily: [
+      '"SF Mono"',
+      '"Fira Code"',
+      '"Fira Mono"',
+      '"Roboto Mono"',
+      "monospace",
+    ].join(","),
+    "&:hover": {
+      color: "#40a9ff",
+      opacity: 1,
+    },
+    "&.Mui-selected": {
+      color: "#1890ff",
+      backgroundColor: "rgba(2,2,2,0.2)",
+      fontWeight: theme.typography.fontWeightMedium,
+    },
+    // "&.Mui-focusVisible": {
+    //   backgroundColor: "#d1eaff",
+    // },
+  }));
 
-  // other: git, github, gitlab slack, trello, kanban, Jira, Notion Responsive design,creativity, teamwork, problem solving, leadership, empathy,
-
+  const Languages = [
+    "HTML/CSS/JS",
+    "Node.js",
+    "TypeScript",
+    "Python",
+    "SASS/LESS",
+  ];
+  const Technology = [
+    "React.js",
+    "Redux",
+    "Sagas",
+    "Webpack",
+    "GraphQL",
+    "SQL",
+    "SQLite",
+    "axios",
+    "express",
+    "django",
+    "Firebase",
+    "mongodb",
+    "NPM",
+    "webpack",
+  ];
+  const UI = ["MaterialUI", "SemanticUI", "styled-components", "CSS Grid"];
+  const Testing = ["Jest", "Enzyme", "Redux Dev Tools"];
+  const Other = [
+    "git",
+    "github",
+    "gitlab",
+    "slack",
+    "trello",
+    "kanban",
+    "Jira",
+    "Responsive design",
+    "creativity",
+    "teamwork",
+    "problem solving",
+    "leadership",
+    "empathy",
+  ];
   return (
     <div className={styles.skillsWrapper}>
       <h2>Skills</h2>
-      <h3>
+      <p>
         I am well versed in front-end technology and have over 5 years
         experience creating react applications. Recently, I have been learning
         express, graphql, mondodb and node.js on my way to full-stack
         development.
-      </h3>
-      <div className={styles.stack}>
-        <p>Languages:</p>
-        JS/HTML/CSS, Node.js, TypeScript, Python, SASS/LESS
-      </div>
-      <div className={styles.stack}>
-        Technology: React.js, Redux, Sagas, Webpack, GraphQL, SQL, SQLite,
-        axios, express, django, Firebase, mongodb, NPM, webpack
-      </div>
-      <div className={styles.stack}>
-        UI: MaterialUI, SemanticUI, styled-components, CSS Grid
-      </div>
-      <div className={styles.stack}>Testing: Jest, Enzyme, Redux Dev Tools</div>
-      <div className={styles.stack}>
-        Other: git, github, gitlab slack, trello, kanban, Jira, Notion,
-        Responsive design, creativity, teamwork, problem solving, leadership,
-        empathy
-      </div>
-      {/* <div className={styles.job}>
+      </p>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          // width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "transparent",
+
+          // flexGrow: 1,
+        }}>
+        <Box sx={{ maxWidth: "520px" }}>
+          <AntTabs
+            value={value}
+            onChange={handleChange}
+            orientation="horizontal"
+            variant="scrollable"
+            // scrollButtons
+            // allowScrollButtonsMobile
+            aria-label="scrollable-horizontal"
+            sx={{
+              // textColor: "secondary.light",
+              // width: "200px",
+              marginBottom: "20px",
+              maxWidth: { xs: 280, sm: 520 },
+            }}>
+            <AntTab value={0} label="Languages" />
+
+            <AntTab value={1} label="Technology" />
+            <AntTab value={2} label="UI" />
+            <AntTab value={3} label="Testing" />
+            <AntTab value={4} label="Other" />
+          </AntTabs>
+        </Box>
+        <CustomTabPanel value={value} index={0}>
+          {generateChips(Languages)}
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+          {generateChips(Technology)}
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+          {generateChips(UI)}
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={3}>
+          {generateChips(Testing)}
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={4}>
+          {generateChips(Other)}
+        </CustomTabPanel>
+      </Box>
+    </div>
+  );
+}
+
+{
+  /* <div className={styles.job}>
         <div className={styles.summary}>
           <div>{job.description}</div>
           <div className={styles.stack}>Tech Stack: {job.stack}</div>
         </div>
-      </div> */}
-    </div>
-  );
+      </div> */
 }
+
+{
+  /* <div className={styles.stack}>
+<p>Languages:</p>
+HTML/CSS/JS, Node.js, TypeScript, Python, SASS/LESS //{" "}
+</div>
+<div className={styles.stack}>
+Technology: React.js, Redux, Sagas, Webpack, GraphQL, SQL, SQLite, //
+axios, express, django, Firebase, mongodb, NPM, webpack //{" "}
+</div>
+
+<div className={styles.stack}>
+UI: MaterialUI, SemanticUI, styled-components, CSS Grid //{" "}
+</div>
+
+<div className={styles.stack}>Testing: Jest, Enzyme, Redux Dev Tools</div>
+
+<div className={styles.stack}>
+Other: git, github, gitlab slack, trello, kanban, Jira, Notion, //
+Responsive design, creativity, teamwork, problem solving, leadership, //
+empathy
+</div> */
+}
+
+<Box
+  sx={{
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "start",
+    flexDirection: "column",
+    textAlign: "start",
+  }}>
+  {/* <h3>{header}</h3>
+<p>{date}</p>
+<ul>
+  {bullets.map((item) => (
+    <li style={{ margin: "20px 0px" }}>{item}</li>
+  ))}
+</ul> */}
+</Box>;

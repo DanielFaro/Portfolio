@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#1f1f1f",
+      main: "#01579b",
       // main: "#E3E8F8",
       // main: "#018CFE",
       // main: "#3776FD",
@@ -21,7 +21,9 @@ const theme = createTheme({
       //contrastText
     },
     secondary: {
-      main: "rgba(2, 2, 2, 0.75)",
+      main: "#1976d2",
+      dark: "rgba(2, 2, 2, 0.75)",
+      // light: "#42a5f5",
     },
     contrastThreshold: 4.5, //this meets the minimum contrast designed for accessibility per WCAG 2.1
   },
@@ -35,15 +37,15 @@ const scrollGlobalStyles = (
     styles={{
       "*::-webkit-scrollbar": {
         width: "0.5em",
-        backgroundColor: "black",
+        backgroundColor: "#0a192f",
       },
-      "*::-webkit-scrollbar-track": {
-        "-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.00)",
-      },
+      // "*::-webkit-scrollbar-track": {
+      //   "-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.00)",
+      // },
       "*::-webkit-scrollbar-thumb": {
-        color: "black",
-        backgroundColor: "gray",
-        outline: "1px solid slategrey",
+        backgroundColor: "#2e5a88",
+        borderRadius: "10px",
+        // outline: "1px solid slategrey",
       },
     }}
   />
