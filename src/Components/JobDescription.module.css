@@ -9,6 +9,7 @@
 .jobWrapper {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 .job {
   display: flex;
@@ -19,23 +20,33 @@
 
 .title {
   min-height: 80px;
+  line-height: 1.5em;
+  > p {
+    margin: 0px;
+  }
   /* padding: 10px 30px; */
 }
 
-.company {
+.separator {
+  opacity: 0.8;
+  border-bottom: 1px solid #2e5a88;
+  margin-top: 10px;
+}
+
+.role,
+.date {
+  color: salmon;
 }
 
 /* .role {
   font-size: 1.5em;
 } */
 
-.date {
-}
-
 .summary {
   width: 50%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
   /* padding: 20px; */
   font-size: 1.2rem;
   &:last-of-type {

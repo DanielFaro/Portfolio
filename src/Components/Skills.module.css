@@ -25,6 +25,11 @@
 .tab {
   color: white;
 }
+.separator {
+  opacity: 0.8;
+  border-bottom: 1px solid #2e5a88;
+  margin-top: 10px;
+}
 
 .chip {
   background-color: transparent;

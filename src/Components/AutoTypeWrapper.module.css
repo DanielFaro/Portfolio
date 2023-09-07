@@ -1,4 +1,4 @@
 .autoTypeWrapper {
-  font-family: 'Courier New';
-  color: greenyellow;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  color: #1890ff;
 }

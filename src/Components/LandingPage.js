@@ -44,8 +44,8 @@ export default function LandingPage() {
     ABOUT: aboutRef,
     EXPERIENCE: experienceRef,
     SKILLS: skillsRef,
+    PROJECTS: projectsRef,
     CONTACTS: contactsRef,
-    INTERESTS: interestsRef,
   };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +57,7 @@ export default function LandingPage() {
     const elementRef = linkList[linkName];
     console.log("## scrollTO ==", linkName, elementRef);
     window.scrollTo({
-      top: elementRef.current.offsetTop,
+      top: elementRef.current.offsetTop - 70,
       behavior: "smooth",
     });
   };
@@ -117,19 +117,19 @@ export default function LandingPage() {
 
         {/* <div className={styles.content}> */}
         <div className={styles.roleWrapper}>
-          <h3>Hi, my name is</h3>
-          <h1 style={{ color: "greenyellow" }}>Dan Faro</h1>
+          <p>Hi, my name is</p>
+          <h1 style={{ color: "salmon" }}>Dan Faro</h1>
           <div style={{ display: "flex" }}>
             <h1>{`I am a\u00A0`}</h1>
-            {/* <h1>
-            <AutoTypeWrapper strings={jobs} />
-          </h1> */}
+            <h1>
+              <AutoTypeWrapper strings={jobs} />
+            </h1>
           </div>
 
           {/* <h1 className={styles.typingBorder}>
             {!isLoading && <AutoTypeWrapper strings={jobs} />}
-          </h1> */}
-          {/* <h1>{`';`}</h1> */}
+          </h1>
+          <h1>{`';`}</h1> */}
         </div>
 
         {/* <div className={isLoading ? styles.Loading : styles.Default}> */}
@@ -141,15 +141,55 @@ export default function LandingPage() {
       )} */}
         <section key="About" ref={aboutRef} className={styles.about}>
           <h2>About</h2>
+          <div className={styles.separator} />
           <div className={styles.aboutContent}>
-            <p>
-              In my work, I try to find the right balance between form and
-              function. From technical drawings, all the way to the photographic
-              renders, and the actual representations of my work as a designer,
-              my philosophy is that of simplicity. At the same time, my style is
-              distinctly mine – uncluttered, with clean shapes and modern
-              space-saving solutions.
-            </p>
+            <div>
+              {" "}
+              <p>
+                Hi, I'm Dan, a front-end developer with 5+ years experience
+                creating accessible, cutting-edge User Interfaces. My
+                contributions cross an array of industries including &ensp;
+                <b>Education</b>, <b>Advertising</b>, and <b>FinTech</b>. I
+                haven't always been a programmer, in fact, after completing my
+                BS in ChemE and MS in EnvE, I spent several years studying
+                groundwater/soil contamination. My favorite duties were mapping
+                sites on the computer and creating widgets in python, so I
+                devoted my energy to coding. I am now in my sixth year of app
+                development, focusing on the front-end with the goal to master
+                the full stack.
+              </p>
+              <p>
+                When I'm not programming, I enjoy acting,
+                <a
+                  id="youtube-button"
+                  href="https://www.youtube.com/@treeczar4187/featured"
+                  target="_blank"
+                  rel="noreferrer">
+                  sketch comedy
+                </a>
+                , reading, and playing guitar at open mics. I am looking for a
+                new role and always available to collaborate on a new project,
+                so feel free to
+                <a
+                  id="message-button"
+                  href="mailto:Danieln.Faro@gmail.com"
+                  target="_blank"
+                  rel="noreferrer">
+                  reach out.
+                </a>
+              </p>
+              <p>
+                These are a sample of techologies I have been using recently:
+                <ul className={styles.aboutLangs}>
+                  <li>React</li>
+                  <li>TypeScript</li>
+                  <li>Node.js</li>
+                  <li>MongoDB</li>
+                  <li>GraphQL</li>
+                  <li>Express</li>
+                </ul>
+              </p>
+            </div>
 
             <div className={styles.headshotWrapper}>
               <img src={headshot} alt="headshot" />
@@ -189,6 +229,7 @@ export default function LandingPage() {
           ref={projectsRef}
           className={styles.projectsWrapper}>
           <h2>Projects</h2>
+          <div className={styles.separator} />
           <div className={styles.project}>
             <div className={styles.luxury}>
               <div className={styles.anchorWrapper}>
@@ -286,7 +327,10 @@ export default function LandingPage() {
         </section>
         <section key="Contacts" ref={contactsRef} className={styles.contacts}>
           <h2>Contacts</h2>
-          <p>Feel free to hit me up yo</p>
+          <p>
+            I am looking for new opportunites and always open to collaboration.
+            Feel free to say hello.
+          </p>
           <a
             id="message-button"
             href="mailto:Danieln.Faro@gmail.com"
@@ -328,17 +372,6 @@ export default function LandingPage() {
               <YoutubeLogo />
             </a>
           </div>
-          {/* {width > 768 && (
-            <div>
-              <a
-                id="email-button"
-                href="mailto:Danieln.Faro@gmail.com"
-                target="_blank"
-                rel="noreferrer">
-                <MailLogo />
-              </a>
-            </div>
-          )} */}
         </div>
 
         <section key="footer" className={styles.footerWrapper}>

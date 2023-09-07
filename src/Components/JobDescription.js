@@ -59,9 +59,9 @@ export default function JobDescription() {
       return (
         <div className={styles.jobWrapper} key={job.company}>
           <div className={styles.title}>
-            <h2 className={styles.company}>{job.company}</h2>
-            <h3 className={styles.role}>{job.role}</h3>
-            <h3 className={styles.date}>{job.date}</h3>
+            <h3 className={styles.company}>{job.company}</h3>
+            <p className={styles.role}>{job.role}</p>
+            <p className={styles.date}>{job.date}</p>
           </div>
 
           <div className={styles.job}>
@@ -92,6 +92,7 @@ export default function JobDescription() {
   return (
     <div>
       <h2>Experience</h2>
+      <div className={styles.separator} />
       <div className={styles.jobsWrapper}>{generateJobs()}</div>
     </div>
   );

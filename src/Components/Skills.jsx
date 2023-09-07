@@ -116,6 +116,7 @@ export default function Skills() {
   return (
     <div className={styles.skillsWrapper}>
       <h2>Skills</h2>
+      <div className={styles.separator} />
       <p>
         I am well versed in front-end technology and have over 5 years
         experience creating react applications. Recently, I have been learning
