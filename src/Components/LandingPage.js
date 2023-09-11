@@ -70,7 +70,7 @@ export default function LandingPage() {
   //   }
   // }, [size]);
 
-  const jobs = ["Front-End Dev", "Musician", "Performer"];
+  const jobs = ["FrontEnd Dev", "Musician", "Performer", "Writer", "Scientist"];
   const greetings = [
     "Hi",
     "Hola",

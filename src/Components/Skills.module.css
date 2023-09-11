@@ -42,7 +42,8 @@
 }
 @media (max-width: 480px) {
   .TabPanel {
-    width: 280px;
+    min-width: 280px;
+    height: 280px;
     grid-template-columns: repeat(auto-fill, minmax(60px, 100px));
     justify-content: center;
   }

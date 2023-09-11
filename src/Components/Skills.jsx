@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { useSpring } from "react-spring";
 import styles from "./Skills.module.css";
-import { Box, Tabs, Tab, Typography, Chip, styled } from "@mui/material";
-import { red } from "@mui/material/colors";
+import { Box, Tabs, Tab, styled } from "@mui/material";
 
 export default function Skills() {
   const [value, setValue] = useState(0);
@@ -26,9 +24,6 @@ export default function Skills() {
           aria-labelledby={`simple-tab-${index}`}
           {...other}>
           {children}
-          {/* <Box sx={{ p: 3 }}>
-          <Typography variant="p">{children}</Typography>
-        </Box> */}
         </div>
       )
     );
@@ -97,7 +92,7 @@ export default function Skills() {
     "webpack",
   ];
   const UI = ["MaterialUI", "SemanticUI", "styled-components", "CSS Grid"];
-  const Testing = ["Jest", "Enzyme", "Redux Dev Tools"];
+  const Testing = ["Jest", "Enzyme", "Redux Dev Tools", "Chrome Dev Tools"];
   const Other = [
     "git",
     "github",
@@ -127,12 +122,9 @@ export default function Skills() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          // width: "100%",
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "transparent",
-
-          // flexGrow: 1,
         }}>
         <Box sx={{ maxWidth: "520px" }}>
           <AntTabs
@@ -176,52 +168,3 @@ export default function Skills() {
     </div>
   );
 }
-
-{
-  /* <div className={styles.job}>
-        <div className={styles.summary}>
-          <div>{job.description}</div>
-          <div className={styles.stack}>Tech Stack: {job.stack}</div>
-        </div>
-      </div> */
-}
-
-{
-  /* <div className={styles.stack}>
-<p>Languages:</p>
-HTML/CSS/JS, Node.js, TypeScript, Python, SASS/LESS //{" "}
-</div>
-<div className={styles.stack}>
-Technology: React.js, Redux, Sagas, Webpack, GraphQL, SQL, SQLite, //
-axios, express, django, Firebase, mongodb, NPM, webpack //{" "}
-</div>
-
-<div className={styles.stack}>
-UI: MaterialUI, SemanticUI, styled-components, CSS Grid //{" "}
-</div>
-
-<div className={styles.stack}>Testing: Jest, Enzyme, Redux Dev Tools</div>
-
-<div className={styles.stack}>
-Other: git, github, gitlab slack, trello, kanban, Jira, Notion, //
-Responsive design, creativity, teamwork, problem solving, leadership, //
-empathy
-</div> */
-}
-
-<Box
-  sx={{
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "start",
-    flexDirection: "column",
-    textAlign: "start",
-  }}>
-  {/* <h3>{header}</h3>
-<p>{date}</p>
-<ul>
-  {bullets.map((item) => (
-    <li style={{ margin: "20px 0px" }}>{item}</li>
-  ))}
-</ul> */}
-</Box>;
