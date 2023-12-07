@@ -7,10 +7,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #0a192f;
   /* grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start] repeat(8, [col-start]) minmax((min-contnet, 14rem) [col-end]) [center-end] 1fr [full-end]; */
 }
 
+.background {
+  background-size: contain;
+  z-index: 1;
+  opacity: 0.4;
+}
 .landingPage {
   max-width: 1000px;
 }
@@ -46,7 +52,7 @@ section {
   width: 100%;
   align-items: flex-start;
   justify-content: flex-start;
-  font-family: "Courier New";
+  font-family: 'Courier New';
   margin-bottom: 40px;
 
   .roleName {
@@ -137,7 +143,7 @@ section {
     font-size: 16px;
 
     &:before {
-      content: ">";
+      content: '>';
       color: white;
       margin-right: 5px;
     }
@@ -194,6 +200,10 @@ section {
   min-width: 260px;
   background-color: #112240;
   padding: 20px;
+
+  /* .separator {
+    margin: 10px 20px;
+  } */
   /* grid-row: 11 / 13;
   grid-column: 2 / 8; */
   /* display: grid; */
@@ -224,7 +234,7 @@ section {
   > a {
     .messageBtn {
       height: 60px;
-      width: 110px;
+      width: 120px;
       background-color: transparent;
       color: #1890ff;
       border: 1px solid #1890ff;
@@ -232,7 +242,7 @@ section {
       cursor: pointer;
       transform: translateX(0px) translateY(0px);
       transition: transform 250ms;
-      font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
 
       &:hover {
         transform: translateX(-2px) translateY(-2px);
@@ -391,7 +401,7 @@ projectDescription {
 .projectLinks {
   height: 20px;
   width: 60px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -491,7 +501,7 @@ projectDescription {
   flex-direction: column;
   align-items: center;
   position: relative;
-  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
   /* transform: translateY(2px);
   transition: transform 0.25s; */
 
@@ -519,7 +529,7 @@ projectDescription {
 
 .contactLinks::after,
 .email::after {
-  content: "";
+  content: '';
   display: block;
   width: 1px;
   height: 90px;
@@ -620,6 +630,9 @@ img {
     > h2 {
       margin-left: 50px;
     }
+    .separator {
+      margin: 10px 50px;
+    }
   }
   .project {
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
@@ -641,7 +654,7 @@ img {
   .luxuryTitle,
   .calculatorTitle {
     grid-row: 1 /2;
-    grid-column: 1 / 5;
+    grid-column: 1 / 8;
     z-index: 11;
   }
 
@@ -682,6 +695,9 @@ img {
     > h2 {
       margin-left: 25px;
     }
+    .separator {
+      margin: 10px 25px;
+    }
   }
   .project {
     padding: 25px;
@@ -710,6 +726,9 @@ img {
     > h2 {
       margin-left: 15px;
     }
+    .separator {
+      margin: 10px 15px;
+    }
   }
   .project {
     padding: 15px;
@@ -722,12 +741,13 @@ img {
   .aboutLangs {
     gap: 0px;
   }
-  /* .headshotWrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
+  .contacts {
+    > a {
+      .messageBtn {
+        width: 100px;
+      }
+    }
+  }
   img {
     max-width: 90%;
   }
@@ -742,5 +762,14 @@ img {
 @media (max-width: 450px) {
   .landingPage {
     max-width: 300px;
+  }
+  .projectLangs {
+    > div:first-child {
+      width: 80%;
+      font-size: 12px;
+    }
+  }
+  .projectLinks {
+    width: 50px;
   }
 }

@@ -1,33 +1,34 @@
-import { useEffect, useState, forwardRef, useRef } from "react";
-import { useWindowSize } from "@uidotdev/usehooks";
+import { useEffect, useState, forwardRef, useRef } from 'react';
+import { useWindowSize } from '@uidotdev/usehooks';
 
-import Typography from "@mui/material/Typography";
-import { useSpring, animated, easings } from "react-spring";
-import Modal from "@mui/material/Modal";
-import Backdrop from "@mui/material/Backdrop";
-import Loader from "./Loader";
-import styles from "./LandingPage.module.css";
+import Typography from '@mui/material/Typography';
+import { useSpring, animated, easings } from 'react-spring';
+import Modal from '@mui/material/Modal';
+import Backdrop from '@mui/material/Backdrop';
+import Loader from './Loader';
+import styles from './LandingPage.module.css';
 
 // COMPONENTS -------------------------------------------------------------------
-import Button from "@mui/material/Button";
-import AutoTypeWrapper from "./AutoTypeWrapper";
-import NavBar from "./Navigation/NavBar";
-import SideBar from "./Navigation/SideBar";
-import TextSphereSm from "./TextSpheres/TextSphereSm";
-import TextSphere from "./TextSpheres/TextSphere";
-import TextSphereLg from "./TextSpheres/TextSphereLg";
-import JobDescription from "./JobDescription";
-import Skills from "./Skills";
+import Button from '@mui/material/Button';
+import AutoTypeWrapper from './AutoTypeWrapper';
+import NavBar from './Navigation/NavBar';
+import SideBar from './Navigation/SideBar';
+import TextSphereSm from './TextSpheres/TextSphereSm';
+import TextSphere from './TextSpheres/TextSphere';
+import TextSphereLg from './TextSpheres/TextSphereLg';
+import JobDescription from './JobDescription';
+import Skills from './Skills';
 
 // ASSETS -----------------------------------------------------------------------
-import { ReactComponent as GithubLogo } from "../assets/icons/github.svg";
-import { ReactComponent as LinkedInLogo } from "../assets/icons/linkedIn.svg";
-import { ReactComponent as YoutubeLogo } from "../assets/icons/youtube.svg";
-import { ReactComponent as MailLogo } from "../assets/icons/mail.svg";
-import { ReactComponent as ExternalLinkLogo } from "../assets/icons/linkIcon.svg";
-import calculatorImg from "../assets/images/calculatorCoverPage.jpg";
-import rentalsImg from "../assets/images/luxuryrentalscoverpage.jpg";
-import headshot from "../assets/images/headshot.avif";
+import { ReactComponent as GithubLogo } from '../assets/icons/github.svg';
+import { ReactComponent as LinkedInLogo } from '../assets/icons/linkedIn.svg';
+import { ReactComponent as YoutubeLogo } from '../assets/icons/youtube.svg';
+import { ReactComponent as MailLogo } from '../assets/icons/mail.svg';
+import { ReactComponent as ExternalLinkLogo } from '../assets/icons/linkIcon.svg';
+import calculatorImg from '../assets/images/calculatorCoverPage.jpg';
+import rentalsImg from '../assets/images/luxuryrentalscoverpage.jpg';
+import dogdashboardImg from '../assets/images/dogdashboard.png';
+import headshot from '../assets/images/headshot.avif';
 
 export default function LandingPage() {
   const aboutRef = useRef(null);
@@ -38,7 +39,7 @@ export default function LandingPage() {
   const projectsRef = useRef(null);
   const contentRef = useRef(null);
   const { width } = useWindowSize();
-  console.log("## width in LandingPage ==", width);
+  console.log('## width in LandingPage ==', width);
 
   const linkList = {
     ABOUT: aboutRef,
@@ -55,30 +56,22 @@ export default function LandingPage() {
 
   const scrollToSection = (linkName) => {
     const elementRef = linkList[linkName];
-    console.log("## scrollTO ==", linkName, elementRef);
+    console.log('## scrollTO ==', linkName, elementRef);
     window.scrollTo({
       top: elementRef.current.offsetTop - 70,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
-  // useEffect(() => {
-  //   if (size.width < 480) {
-  //     setMobileView(true);
-  //   } else {
-  //     setMobileView(false);
-  //   }
-  // }, [size]);
-
-  const jobs = ["FrontEnd Dev", "Musician", "Performer", "Writer", "Scientist"];
+  const jobs = ['FrontEnd Dev', 'Musician', 'Performer', 'Writer', 'Scientist'];
   const greetings = [
-    "Hi",
-    "Hola",
-    "你好",
-    "Salut",
-    "مرحبًا",
-    "Hello",
-    "привет",
+    'Hi',
+    'Hola',
+    '你好',
+    'Salut',
+    'مرحبًا',
+    'Hello',
+    'привет',
   ];
   // the pattern below wont work correctly, since we only show
   // the loader when open is true
@@ -92,10 +85,12 @@ export default function LandingPage() {
       <div className={styles.landingPage}>
         {/* {isLoading && (
         <div className={styles.open}>
+        
           <Loader />
           <Button onClick={handleClose}>Enter</Button>
         </div>
       )} */}
+
         {!isLoading && width > 560 ? (
           <NavBar onClick={scrollToSection} width={width} />
         ) : (
@@ -108,7 +103,8 @@ export default function LandingPage() {
                 id="email-button"
                 href="mailto:Danieln.Faro@gmail.com"
                 target="_blank"
-                rel="noreferrer">
+                rel="noreferrer"
+              >
                 Danieln.Faro@gmail.com
               </a>
             </div>
@@ -118,8 +114,8 @@ export default function LandingPage() {
         {/* <div className={styles.content}> */}
         <div className={styles.roleWrapper}>
           <p>Hi, my name is</p>
-          <h1 style={{ color: "salmon" }}>Dan Faro</h1>
-          <div style={{ display: "flex" }}>
+          <h1 style={{ color: 'salmon' }}>Dan Faro</h1>
+          <div style={{ display: 'flex' }}>
             <h1>{`I am a\u00A0`}</h1>
             <h1>
               <AutoTypeWrapper strings={jobs} />
@@ -144,7 +140,7 @@ export default function LandingPage() {
           <div className={styles.separator} />
           <div className={styles.aboutContent}>
             <div>
-              {" "}
+              {' '}
               <p>
                 Hi, I'm Dan, a front-end developer with 5+ years experience
                 creating accessible, cutting-edge User Interfaces. My
@@ -164,7 +160,8 @@ export default function LandingPage() {
                   id="youtube-button"
                   href="https://www.youtube.com/@treeczar4187/featured"
                   target="_blank"
-                  rel="noreferrer">
+                  rel="noreferrer"
+                >
                   sketch comedy
                 </a>
                 , reading, and playing guitar at open mics. I am looking for a
@@ -174,7 +171,8 @@ export default function LandingPage() {
                   id="message-button"
                   href="mailto:Danieln.Faro@gmail.com"
                   target="_blank"
-                  rel="noreferrer">
+                  rel="noreferrer"
+                >
                   reach out.
                 </a>
               </p>
@@ -199,7 +197,8 @@ export default function LandingPage() {
         <section
           key="Experience"
           ref={experienceRef}
-          className={styles.experience}>
+          className={styles.experience}
+        >
           <JobDescription />
         </section>
         <section key="Skills" ref={skillsRef} className={styles.skills}>
@@ -227,9 +226,57 @@ export default function LandingPage() {
         <section
           key="Projects"
           ref={projectsRef}
-          className={styles.projectsWrapper}>
+          className={styles.projectsWrapper}
+        >
           <h2>Projects</h2>
           <div className={styles.separator} />
+          <div className={styles.project}>
+            <div className={styles.calculator}>
+              <div className={styles.anchorWrapper}>
+                <a href="https://danielfaro.github.io/dog-dashboard/">
+                  <div className={styles.imageWrapper}>
+                    <img src={dogdashboardImg} alt="dog dashboard Img" />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div className={styles.calculatorTitle}>
+              <h3>Dog Breed Finder</h3>
+            </div>
+            <div className={styles.calculatorDescription}>
+              <p>
+                The Dog Breed finder displays the 200 most common breeds and
+                allows users to sort and filter table data. In addition, data is
+                displayed by scatterplot with life expectancy vs. weight.
+              </p>
+
+              <div className={styles.projectLangs}>
+                <div>[React Zustand ChartJS styled-components]</div>
+                <div className={styles.projectLinks}>
+                  <div>
+                    <a
+                      id="github-button"
+                      href="https://github.com/DanielFaro/dog-dashboard/tree/production"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <GithubLogo />
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      id="external-link-button"
+                      href="https://danielfaro.github.io/dog-dashboard/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <ExternalLinkLogo />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className={styles.project}>
             <div className={styles.luxury}>
               <div className={styles.anchorWrapper}>
@@ -245,32 +292,33 @@ export default function LandingPage() {
               <h3>Luxury Rentals</h3>
             </div>
             <div className={styles.luxuryDescription}>
-              {" "}
+              {' '}
               <p>
                 'Luxury Rentals' is a proof of concept displaying the available
                 luxury vehicles in the area. For this case, Los Angeles was used
-                as an example. It includes filtering by several parameters such
-                as vehichle type and size.
+                as an example.
               </p>
               <div className={styles.projectLangs}>
-                <div>[React styled-components MongoDB Express]</div>
+                <div>[React MongoDB Express styled-components]</div>
                 <div className={styles.projectLinks}>
                   <div>
                     <a
                       id="github-button"
                       href="https://github.com/DanielFaro/LuxuryRentals/tree/master"
                       target="_blank"
-                      rel="noreferrer">
+                      rel="noreferrer"
+                    >
                       <GithubLogo />
                     </a>
                   </div>
                   <div>
-                    {" "}
+                    {' '}
                     <a
                       id="external-link-button"
                       href="https://danielfaro.github.io/LuxuryRentals"
                       target="_blank"
-                      rel="noreferrer">
+                      rel="noreferrer"
+                    >
                       <ExternalLinkLogo />
                     </a>
                   </div>
@@ -307,7 +355,8 @@ export default function LandingPage() {
                       id="github-button"
                       href="https://github.com/DanielFaro/calculator-app-ts"
                       target="_blank"
-                      rel="noreferrer">
+                      rel="noreferrer"
+                    >
                       <GithubLogo />
                     </a>
                   </div>
@@ -316,7 +365,8 @@ export default function LandingPage() {
                       id="external-link-button"
                       href="https://danielfaro.github.io/calculator-app-ts"
                       target="_blank"
-                      rel="noreferrer">
+                      rel="noreferrer"
+                    >
                       <ExternalLinkLogo />
                     </a>
                   </div>
@@ -335,7 +385,8 @@ export default function LandingPage() {
             id="message-button"
             href="mailto:Danieln.Faro@gmail.com"
             target="_blank"
-            rel="noreferrer">
+            rel="noreferrer"
+          >
             <button className={styles.messageBtn}>
               <p>Reach Out</p>
             </button>
@@ -344,13 +395,15 @@ export default function LandingPage() {
         <div
           className={
             width > 768 ? styles.contactLinks : styles.mobileContactLinks
-          }>
+          }
+        >
           <div>
             <a
               id="github-button"
               href="https://www.github.com/DanielFaro"
               target="_blank"
-              rel="noreferrer">
+              rel="noreferrer"
+            >
               <GithubLogo />
             </a>
           </div>
@@ -359,7 +412,8 @@ export default function LandingPage() {
               id="linkedIn-button"
               href="https://www.linkedin.com/in/daniel-faro-4a4024101/"
               target="_blank"
-              rel="noreferrer">
+              rel="noreferrer"
+            >
               <LinkedInLogo />
             </a>
           </div>
@@ -368,7 +422,8 @@ export default function LandingPage() {
               id="youtube-button"
               href="https://www.youtube.com/@treeczar4187/featured"
               target="_blank"
-              rel="noreferrer">
+              rel="noreferrer"
+            >
               <YoutubeLogo />
             </a>
           </div>
