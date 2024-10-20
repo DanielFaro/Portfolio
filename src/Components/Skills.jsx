@@ -113,7 +113,7 @@ export default function Skills() {
       <h2>Skills</h2>
       <div className={styles.separator} />
       <p>
-        I am well versed in front-end technology and have over 5 years
+        I am well versed in front-end technology and have over 6 years
         experience creating react applications. Recently, I have been learning
         express, graphql, mondodb and node.js on my way to full-stack
         development.

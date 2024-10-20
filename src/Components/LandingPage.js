@@ -142,7 +142,7 @@ export default function LandingPage() {
             <div>
               {' '}
               <p>
-                Hi, I'm Dan, a front-end developer with 5+ years experience
+                Hi, I'm Dan, a front-end developer with 6+ years experience
                 creating accessible, cutting-edge User Interfaces. My
                 contributions cross an array of industries including &ensp;
                 <b>Education</b>, <b>Advertising</b>, and <b>FinTech</b>. I
@@ -150,7 +150,7 @@ export default function LandingPage() {
                 BS in ChemE and MS in EnvE, I spent several years studying
                 groundwater/soil contamination. My favorite duties were mapping
                 sites on the computer and creating widgets in python, so I
-                devoted my energy to coding. I am now in my sixth year of app
+                devoted my energy to coding. I am now in my seventh year of app
                 development, focusing on the front-end with the goal to master
                 the full stack.
               </p>

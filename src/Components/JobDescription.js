@@ -4,11 +4,24 @@ import styles from "./JobDescription.module.css";
 import { Box, Tabs, Tab } from "@mui/material";
 import cadentImg from "../assets/images/cadentexample.jpg";
 import shift4Img from "../assets/images/shift4.jpg";
+import NoplexImg from '../assets/images/NoPlex.png';
+import {ReactComponent as CadentSVG} from '../assets/images/cadent.svg';
 
 export default function JobDescription() {
   const [value, setValue] = useState(0);
 
   const handleChange = (e, newVal) => setValue(newVal);
+
+  const NoPlex = {
+    company: "NoPlex",
+    role: "Consulting Front-End Engineer",
+    date: "July 2024 - Present",
+    src: "https://www.noplex.ai",
+    img: NoplexImg,
+    alt: "Noplex",
+    stack: "[React/React Native, Redux, Typescript, Axios]",
+    description: `Developed new features for a task management app using React/React Native for web and mobile`,
+  };
 
   const Shift4 = {
     company: "Shift4",
@@ -17,7 +30,7 @@ export default function JobDescription() {
     src: "https://www.shift4.com/online-payments",
     img: shift4Img,
     alt: "Shift4",
-    stack: "[React, Redux, ReduxSaga, MaterialUI, Storybook, DataDog]",
+    stack: "[React, Redux, ReduxSaga, MaterialUI, Storybook]",
     description: `Maintained and developed front end code for a POS application used in secure bulk purchase transactions`,
   };
 
@@ -30,6 +43,7 @@ export default function JobDescription() {
     date: "July 2019 - Oct 2021",
     src: "https://cadent.tv/",
     img: cadentImg,
+    width: 350,
     alt: "Cadent",
     stack: "[React, Redux, ReduxSaga, Storybook, Websockets, Jest]",
     description: `Built shared React components for ad time purchasing app using React/Redux and ensure code functionality with Jest.`,
@@ -55,7 +69,7 @@ export default function JobDescription() {
     value === 0 ? Shift4 : value === 1 ? Cadent : ProjectOne;
 
   const generateJobs = () => {
-    return [Shift4, Cadent, ProjectOne].map((job) => {
+    return [NoPlex, Shift4, Cadent, ProjectOne].map((job) => {
       return (
         <div className={styles.jobWrapper} key={job.company}>
           <div className={styles.title}>
@@ -67,7 +81,9 @@ export default function JobDescription() {
           <div className={styles.job}>
             <div className={styles.summary}>
               <p>{job.description}</p>
-              <div className={styles.stack}>Tech Stack: {job.stack}</div>
+              <div className={styles.stack}>
+                Tech Stack: <br></br> {job.stack}
+              </div>
             </div>
             {job.img && (
               <div className={styles.anchorWrapper}>
@@ -77,7 +93,7 @@ export default function JobDescription() {
                   target="_blank"
                   rel="noreferrer">
                   <div className={styles.imageWrapper}>
-                    <img src={job.img} alt={job.alt} />
+                    <img src={job.img} alt={job.alt} width={job?.width}/>
                   </div>
                 </a>
               </div>

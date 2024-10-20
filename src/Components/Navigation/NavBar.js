@@ -4,7 +4,7 @@ import styles from "./NavBar.module.css";
 import { links, mobileLinks, scrollToTop } from "./index.js";
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { ReactComponent as PersonalLogo } from "../../assets/icons/logo.svg";
-import ResumeMar2023 from "../../assets/images/ResumeMar2023.pdf";
+import Resume from "../../assets/images/DanielFaroResume.pdf";
 
 export default function NavBar({ onClick, width }) {
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -34,10 +34,7 @@ export default function NavBar({ onClick, width }) {
       );
     });
   };
-  // E3E8F8
-  // 018CFE
-  //3776FD
-  // 0AC1FD
+
 
   return (
     <AppBar position="fixed" sx={{ backgroundColor: "secondary.dark" }}>
@@ -64,7 +61,7 @@ export default function NavBar({ onClick, width }) {
             {generateLinks()}
           </Box>
           <Box>
-            <a href={ResumeMar2023} target="_blank" rel="noreferrer">
+            <a href={Resume} target="_blank" rel="noreferrer">
               <button className={styles.button}>C/V</button>
             </a>
           </Box>

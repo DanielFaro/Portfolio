@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { mobileLinks, scrollToTop } from "./index.js";
-import ResumeMar2023 from "../../assets/images/ResumeMar2023.pdf";
+import Resume from "../../assets/images/DanielFaroResume.pdf";
 
 export default function SideBar({ onClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -87,7 +87,7 @@ export default function SideBar({ onClick }) {
             }}>
             {generateLinks()}
             <Box>
-              <a href={ResumeMar2023} target="_blank" rel="noreferrer">
+              <a href={Resume} target="_blank" rel="noreferrer">
                 <button className={styles.resumeBtn}>C/V</button>
               </a>
             </Box>
