@@ -132,7 +132,7 @@ section {
 
 .aboutLangs {
   display: grid;
-  grid-template-columns: repeat(2, minmax(80px, 150px));
+  grid-template-columns: repeat(3, minmax(80px, 150px));
   place-content: left;
   padding: 0px;
   gap: 10px;
@@ -179,7 +179,8 @@ section {
 .skillsRow {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: start;
+  height: 420px;
 }
 
 .interests {
@@ -307,6 +308,15 @@ section {
   background-color: #112240;
   box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
   grid-row: 4 / 10;
+  grid-column: 6 / -1;
+  z-index: 10;
+  padding: 20px 20px;
+}
+
+.faroCastDescription {
+  background-color: #112240;
+  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+  grid-row: 4 / 12;
   grid-column: 6 / -1;
   z-index: 10;
   padding: 20px 20px;
@@ -644,6 +654,7 @@ img {
   }
   .luxury,
   .luxuryDescription,
+  .faroCastDescription,
   .calculator,
   .calculatorDescription {
     grid-column: 1 / -1;
@@ -660,6 +671,7 @@ img {
   }
 
   .luxuryDescription,
+  .faroCastDescription,
   .calculatorDescription {
     padding: 0;
   }
@@ -669,6 +681,7 @@ img {
   }
 
   .luxuryDescription,
+  .faroCastDescription,
   .calculatorDescription {
     display: flex;
     flex-direction: column;
@@ -691,6 +704,7 @@ img {
 @media (max-width: 650px) {
   .skillsRow {
     flex-direction: column;
+    height: auto;
   }
   .projectsWrapper {
     > h2 {

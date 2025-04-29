@@ -11,7 +11,7 @@
 
 .TabPanel {
   /* min-height: 200px; */
-  max-width: 520px;
+  max-width: 620px;
   /* height: 464px; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -45,9 +45,12 @@
     min-width: 280px;
     height: 280px;
     grid-template-columns: repeat(auto-fill, minmax(60px, 100px));
-    justify-content: center;
+    place-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .chip {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+    width: 80%;
   }
 }

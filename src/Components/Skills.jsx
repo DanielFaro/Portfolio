@@ -77,26 +77,35 @@ export default function Skills() {
   ];
   const Technology = [
     "React.js",
+    "React Native",
     "Redux",
+    "RTK Query",
+    "Zustand",
     "Sagas",
     "Webpack",
-    "GraphQL",
-    "SQL",
-    "SQLite",
     "axios",
-    "express",
-    "django",
-    "Firebase",
-    "mongodb",
     "NPM",
     "webpack",
   ];
-  const UI = ["MaterialUI", "SemanticUI", "styled-components", "CSS Grid"];
-  const Testing = ["Jest", "Enzyme", "Redux Dev Tools", "Chrome Dev Tools"];
+  const Backend = [
+    "MongoDB",
+    "PostgreSQL",
+    "Apollo",
+    "GraphQL",
+    "SQL",
+    "SQLite",
+    "Flask",
+    "express",
+    "django",
+    "Firebase",
+  ]
+  const UI = ["TailwindCSS", "MaterialUI", "Shadcn", "styled-components", "SemanticUI", , "CSS Grid"];
+  const Testing = ["Jest", "React Testing Library", "Enzyme", "Redux Dev Tools", "Chrome Dev Tools"];
   const Other = [
     "git",
     "github",
     "gitlab",
+    "github actions",
     "slack",
     "trello",
     "kanban",
@@ -126,7 +135,7 @@ export default function Skills() {
           alignItems: "center",
           backgroundColor: "transparent",
         }}>
-        <Box sx={{ maxWidth: "520px" }}>
+        <Box sx={{ maxWidth: "620px" }}>
           <AntTabs
             value={value}
             onChange={handleChange}
@@ -139,14 +148,15 @@ export default function Skills() {
               // textColor: "secondary.light",
               // width: "200px",
               marginBottom: "20px",
-              maxWidth: { xs: 280, sm: 520 },
+              maxWidth: { xs: 280, sm: 620 },
             }}>
             <AntTab value={0} label="Languages" />
 
             <AntTab value={1} label="Technology" />
-            <AntTab value={2} label="UI" />
-            <AntTab value={3} label="Testing" />
-            <AntTab value={4} label="Other" />
+            <AntTab value={2} label="Backend" />
+            <AntTab value={3} label="UI" />
+            <AntTab value={4} label="Testing" />
+            <AntTab value={5} label="Other" />
           </AntTabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
@@ -156,12 +166,15 @@ export default function Skills() {
           {generateChips(Technology)}
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          {generateChips(UI)}
+          {generateChips(Backend)}
         </CustomTabPanel>
         <CustomTabPanel value={value} index={3}>
-          {generateChips(Testing)}
+          {generateChips(UI)}
         </CustomTabPanel>
         <CustomTabPanel value={value} index={4}>
+          {generateChips(Testing)}
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={5}>
           {generateChips(Other)}
         </CustomTabPanel>
       </Box>

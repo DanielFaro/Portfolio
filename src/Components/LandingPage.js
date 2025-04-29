@@ -29,6 +29,7 @@ import calculatorImg from '../assets/images/calculatorCoverPage.jpg';
 import rentalsImg from '../assets/images/luxuryrentalscoverpage.jpg';
 import dogdashboardImg from '../assets/images/dogdashboard.png';
 import headshot from '../assets/images/headshot.avif';
+import FaroCast from '../assets/images/FaroCast.png'
 
 export default function LandingPage() {
   const aboutRef = useRef(null);
@@ -180,11 +181,14 @@ export default function LandingPage() {
                 These are a sample of techologies I have been using recently:
                 <ul className={styles.aboutLangs}>
                   <li>React</li>
+                  <li>React Native</li>
+                  <li>Redux</li>
                   <li>TypeScript</li>
                   <li>Node.js</li>
                   <li>MongoDB</li>
                   <li>GraphQL</li>
                   <li>Express</li>
+                  <li>TailwindCSS</li>
                 </ul>
               </p>
             </div>
@@ -230,6 +234,47 @@ export default function LandingPage() {
         >
           <h2>Projects</h2>
           <div className={styles.separator} />
+          <div className={styles.project}>
+            <div className={styles.luxury}>
+              <div className={styles.anchorWrapper}>
+                <a href="https://danielfaro.github.io/weatherapp-tailwind/">
+                  <div className={styles.imageWrapper}>
+                    <img src={FaroCast} alt="FaroCast Img" />
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.luxuryTitle}>
+              <h3>FaroCast Weather</h3>
+            </div>
+            <div className={styles.faroCastDescription}>
+              {' '}
+              <p>
+                'FaroCast' is a modern weather app using Google's Places API and 
+                OpenWeather's OneCall API. Upon load, the user's device is geolocated and
+                current data displayed. They can then search by city to receive the current, hourly,
+                and weekly forecasts. 
+              </p>
+              <div className={styles.projectLangs}>
+                <div>[React TailwindCSS Vite Framer-Motion]</div>
+                <div className={styles.projectLinks}>
+                  <></>
+                  <div>
+                    {' '}
+                    <a
+                      id="external-link-button"
+                      href="https://danielfaro.github.io/weatherapp-tailwind/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <ExternalLinkLogo />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className={styles.project}>
             <div className={styles.calculator}>
               <div className={styles.anchorWrapper}>
